@@ -1,10 +1,10 @@
-import static javax.swing.JOptionPane.*; 
+import javax.swing.JOptionPane; 
 
-public class oppgave2 {
+public class Oppgave2 {
     public static void main(String [] args){ 
-        String timer = showInputDialog("Antall timer");
-        String minutt = showInputDialog("Antall minutt");
-        String sekund = showInputDialog("Antall sekund");
+        String timer = JOptionPane.showInputDialog("Antall timer");
+        String minutt = JOptionPane.showInputDialog("Antall minutt");
+        String sekund = JOptionPane.showInputDialog("Antall sekund");
 
         int resultTimer = Integer.parseInt(timer);
         int resultMinutt = Integer.parseInt(minutt);

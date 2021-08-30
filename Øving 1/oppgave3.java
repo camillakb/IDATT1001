@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class oppgave3 {
+public class Oppgave3 {
     public static void main(String [] args){
         String sekundLest = JOptionPane.showInputDialog("Antall sekunder");
         int sekund = Integer.parseInt(sekundLest);
