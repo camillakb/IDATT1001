@@ -14,6 +14,7 @@ public class oppg2 {
                     primtall = false;
                 }
             }
+            
             if(primtall){
                 System.out.printf("%d er et primtall!\n\n", tall);
             } else {
@@ -25,6 +26,6 @@ public class oppg2 {
             tall = input.nextInt();
         }
         input.close();
-       System.out.println("Oki snakkes");
+        System.out.println("Oki snakkes");
     }
 }
