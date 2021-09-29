@@ -10,7 +10,7 @@ public class oppg2 {
             System.out.println(generator.nesteDesimaltall(1.5, 3.5));
         }
 
-        int nedre = 4;
+        int nedre = 0;
         int ovre = 10;
         int antall = 80;
 
