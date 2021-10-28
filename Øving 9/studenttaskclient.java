@@ -34,7 +34,8 @@ public class studenttaskclient {
                 
                 case 2:
                     System.out.println("Enter the students name.");
-                    newStudentName = input.next();
+                    input.nextLine(); //This line consumes the \n character.
+                    newStudentName = input.nextLine();
                     System.out.println("Enter the number of approved tasks for the new student.");
                     newStudentTasks = input.nextInt();
                     tasksForStudents.addNewStudent(new Student(newStudentName, newStudentTasks));
