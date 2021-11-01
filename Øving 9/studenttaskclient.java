@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class studenttaskclient {
     public static void main(String[] args) {
 
-        TaskOversight tasksForStudents = new TaskOversight();
+        TaskOversight tasksForStudents = new TaskOversight(); //Create object, adding students
         tasksForStudents.addNewStudent(new Student("Kari Nordmann", 4));
         tasksForStudents.addNewStudent(new Student("Ola Pettersen", 6));
         tasksForStudents.addNewStudent(new Student("Camilla Birkelund", 8));

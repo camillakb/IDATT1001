@@ -4,17 +4,17 @@ public class Student {
     private String name;
     private int numberOfTasks;
 
-    public Student(String name, int numberOfTasks) {
+    public Student(String name, int numberOfTasks) { //Constructor
         this.name = name;
         this.numberOfTasks = numberOfTasks;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     } 
 
     public int getNumberOfTasks() {
-        return numberOfTasks;
+        return this.numberOfTasks;
     }
 
     public void addNumberOfTasks() {
@@ -23,14 +23,15 @@ public class Student {
 
     public String toString() {
         String callMethods = "";
-        callMethods = callMethods.concat("Student name: " + getName());
-        callMethods = callMethods.concat("\nNumber of approved tasks: " + getNumberOfTasks());
+        callMethods = callMethods.concat("Student name: " + this.getName());
+        callMethods = callMethods.concat("\nNumber of approved tasks: " + this.getNumberOfTasks());
 
         return callMethods;
     
     }
 
-    public static void main(String[] args) {
+    //Test program
+    public static void main(String[] args) { 
         Student thisStudent = new Student("Camilla Birkelund", 8);
 
         System.out.println(thisStudent.getName());
