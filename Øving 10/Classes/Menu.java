@@ -16,10 +16,6 @@ public class Menu {
         return menuName;
     }
 
-    public ArrayList<Dish> getDishes() {
-        return dishes;
-    }
-
     public double getMenuPrice() {
         double sum = 0;
         for (Dish dish : this.dishes) {
