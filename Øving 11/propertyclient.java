@@ -40,7 +40,7 @@ public class propertyclient {
             System.out.println("4. Calculate the average area of all the properties in the property register.");
             System.out.println("5. Quit.");
 
-            userInputNumber = input.nextInt();
+            userInputNumber = input.nextInt(); 
             System.out.println("");
 
             switch(userInputNumber) {
