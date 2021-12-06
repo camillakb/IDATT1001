@@ -1,0 +1,134 @@
+import Classes.CovidStats;
+import Classes.CovidStatsRegister;
+import java.util.Scanner;
+import java.time.LocalDate;
+
+public class covidStatsClient {
+
+    public static void main (String [] args) {
+        
+
+        /**
+         * Making an empty CovidStatsRegister list and adding the examples given in the task.
+         */
+        CovidStatsRegister covidRegistry = new CovidStatsRegister();
+        covidRegistry.addCovidRegistry(new CovidStats("China", LocalDate.of(2020, 01, 19), 136, 1));
+        covidRegistry.addCovidRegistry(new CovidStats("China", LocalDate.of(2020, 02, 05), 3872, 66));
+        covidRegistry.addCovidRegistry(new CovidStats("Norway", LocalDate.of(2020, 03, 07), 3, 0));
+        covidRegistry.addCovidRegistry(new CovidStats("USA", LocalDate.of(2020, 03, 9), 259, 4));
+        covidRegistry.addCovidRegistry(new CovidStats("China", LocalDate.of(2020, 03, 9), 45, 23));
+        covidRegistry.addCovidRegistry(new CovidStats("Norway", LocalDate.of(2020, 03, 22), 240, 8));
+        covidRegistry.addCovidRegistry(new CovidStats("USA", LocalDate.of(2020, 03, 24), 20341, 119));
+        covidRegistry.addCovidRegistry(new CovidStats("China", LocalDate.of(2020, 03, 25), 28, 4));
+        covidRegistry.addCovidRegistry(new CovidStats("Norway", LocalDate.of(2020, 04, 06), 110, 3));
+        covidRegistry.addCovidRegistry(new CovidStats("USA", LocalDate.of(2020, 04, 10), 30859, 2087));
+        covidRegistry.addCovidRegistry(new CovidStats("China", LocalDate.of(2020, 04, 10), 55, 1));
+    
+
+    /**
+     * Attributes used in the client program.
+     */
+    Scanner input = new Scanner(System.in);
+    int inputNumber, newYear, newMonth, newDay, newInfected, newDeaths;
+    String newCountry;
+    LocalDate newDate;
+
+    /**
+     * Do-while loop that can (1)add new entrtries to the register, (2)print all content from the register, (3)search for register by date, 
+     * (4)search for registers after a given date, (5)calculate number of deaths and (6)infected covid cases for a given country.
+     * The instances of input.nextLine() is to consume the extra \n character that appears before registering the next String input.
+     */
+
+    do {
+        System.out.println("What would you like to do?");
+        System.out.println("1. Add a new entry to the registry. \n2. Print all registries. \n3. Search for a registry by date.");
+        System.out.println("4. Search for registries after a given date. \n5. Calculate number of deaths for a given country.");
+        System.out.println("6. Calculate number of infected for a given country. \n7. Quit.");
+
+        inputNumber = input.nextInt();
+        System.out.println("");
+
+        switch(inputNumber) {
+
+            case 1:
+                System.out.println("Which country would you like to register?");
+                input.nextLine();
+                newCountry = input.nextLine();
+
+                System.out.println("Enter the year:");
+                newYear = input.nextInt();
+                System.out.println("Enter the month:");
+                newMonth = input.nextInt();
+                System.out.println("Enter the day:");
+                newDay = input.nextInt();
+
+                System.out.println("Enter number of people infected by covid:");
+                newInfected = input.nextInt();
+
+                System.out.println("Enter the number of deaths by covid:");
+                newDeaths = input.nextInt();
+
+                covidRegistry.addCovidRegistry(new CovidStats(newCountry, LocalDate.of(newYear, newMonth, newDay), newInfected, newDeaths));
+                System.out.println("Entry successfully added to the register.");
+
+                break;
+
+            case 2:
+                System.out.println(covidRegistry);
+                break;
+
+            case 3:
+                System.out.println("What date would you like to search for? \nEnter year:"); 
+                newYear = input.nextInt();
+
+                System.out.println("Enter month:");
+                newMonth = input.nextInt();
+
+                System.out.println("Enter day:");
+                newDay = input.nextInt();
+
+                newDate = LocalDate.of(newYear, newMonth, newDay);
+                System.out.println(covidRegistry.getCovidStatsAtDate(newDate));
+
+                break;
+
+            case 4: 
+                System.out.println("What date would you like to search for? \nEnter year:");
+                newYear = input.nextInt();
+
+                System.out.println("Enter month:");
+                newMonth = input.nextInt();
+
+                System.out.println("Enter day:");
+                newDay = input.nextInt();
+
+                newDate = LocalDate.of(newYear, newMonth, newDay);
+                System.out.println(covidRegistry.getCovidStatsAfterDate(newDate));
+
+                break;
+
+            case 5:
+                System.out.println("What country would you like to see number of deaths for?");
+                input.nextLine();
+                newCountry = input.nextLine();
+
+                System.out.println(covidRegistry.numberOfDeathsInCountry(newCountry));
+
+                break;
+
+            case 6:
+                System.out.println("What country would you like to see number of infected for?");
+                input.nextLine();
+                newCountry = input.nextLine();
+                
+                System.out.println(covidRegistry.numberOfInfectedInCountry(newCountry));
+                
+                break;
+        }
+    } while(inputNumber != 7);
+
+    input.close();
+    
+}
+}
+
