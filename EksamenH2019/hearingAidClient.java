@@ -3,6 +3,10 @@ import java.util.Scanner;
 import Classes.HearingAid;
 import Classes.HearingAidCentral;
 
+/**
+ * Client to view and edit information about hearing aids.
+ */
+
 public class hearingAidClient {
 
     public static void main(String [] args) {
@@ -11,14 +15,14 @@ public class hearingAidClient {
          * Making an empty list of hearing aids and adding the examples given in the task.
          */
         HearingAidCentral listOfHearingAids = new HearingAidCentral();
-        listOfHearingAids.addHearingAid(new HearingAid(1001, "Høreapparat", true, "Per Olsen"));
-        listOfHearingAids.addHearingAid(new HearingAid(1002, "Høreapparat", false, ""));
-        listOfHearingAids.addHearingAid(new HearingAid(1003, "Høreapparat", false, ""));
-        listOfHearingAids.addHearingAid(new HearingAid(2001, "Samtaleforsterker", true, "Per Olsen"));
-        listOfHearingAids.addHearingAid(new HearingAid(2002, "Samtaleforsterker", false, ""));
-        listOfHearingAids.addHearingAid(new HearingAid(2003, "Samtaleforsterker", false, ""));
-        listOfHearingAids.addHearingAid(new HearingAid(3001, "Varslingsutstyr", true, "Per Olsen"));
-        listOfHearingAids.addHearingAid(new HearingAid(3003, "Varslingsutstyr", false, ""));
+        listOfHearingAids.addHearingAid(new HearingAid(1001, "Hearing aid", true, "Per Olsen"));
+        listOfHearingAids.addHearingAid(new HearingAid(1002, "Hearing aid", false, ""));
+        listOfHearingAids.addHearingAid(new HearingAid(1003, "Hearing aid", false, ""));
+        listOfHearingAids.addHearingAid(new HearingAid(2001, "Conversation amplifier", true, "Per Olsen"));
+        listOfHearingAids.addHearingAid(new HearingAid(2002, "Conversation amplifier", false, ""));
+        listOfHearingAids.addHearingAid(new HearingAid(2003, "Conversation amplifier", false, ""));
+        listOfHearingAids.addHearingAid(new HearingAid(3001, "Warning equipment", true, "Per Olsen"));
+        listOfHearingAids.addHearingAid(new HearingAid(3003, "Warning equipment", false, ""));
 
         /**
          * Attributes used in the client program.
@@ -34,9 +38,9 @@ public class hearingAidClient {
          */
 
         do {
-            System.out.println("Hva ønsker du å gjøre?");
-            System.out.println("1. Registrer et nytt hjelpemiddel. \n2. Skriv ut liste over alle hjelpemidler med utleiestatus.");
-            System.out.println("3. Leie ut et hjelpemiddel. \n4. Returnere et hjelpemiddel. \n5. Avslutt.");
+            System.out.println("What would you like to do?");
+            System.out.println("1. Register a new hearing aid. \n2. Print a list of all hearing aids with their current rental status.");
+            System.out.println("3. Rent out a hearing aid. \n4. Return a hearing aid. \n5. Quit.");
 
             userInput = input.nextInt();
             System.out.println();
@@ -44,16 +48,16 @@ public class hearingAidClient {
             switch(userInput) {
 
                 case 1: 
-                    System.out.println("Skriv ID-nummeret til det nye hjelpemiddelet.");
+                    System.out.println("What is the ID of the new hearing aid?");
                     newID = input.nextInt();
 
-                    System.out.println("Skriv inn hvilken type hjelpemiddel du vil registrere.");
+                    System.out.println("What type of hearing aid would you like to register?");
                     input.nextLine();
                     newType = input.nextLine();
 
                     listOfHearingAids.addHearingAid(new HearingAid(newID, newType, false, ""));
                     
-                    System.out.println("\nHjelpemiddelet er lagt til.");
+                    System.out.println("\nThe hearing aid has been added to the register.");
                     break;
 
                 case 2: 
@@ -61,10 +65,10 @@ public class hearingAidClient {
                     break;
 
                 case 3:
-                    System.out.println("Skriv ID-nummeret til hjelpemiddelet du ønsker å leie ut.");
+                    System.out.println("Enter the ID of the hearing aid you would like to rent out.");
                     newID = input.nextInt();
 
-                    System.out.println("Skriv navnet til leietakeren.");
+                    System.out.println("Enter the name of the renter.");
                     input.nextLine();
                     newName = input.nextLine();
 
@@ -72,7 +76,7 @@ public class hearingAidClient {
                     break;
 
                 case 4:
-                    System.out.println("Skriv ID-nummeret til hjelpemiddelet som skal returneres.");
+                    System.out.println("Enter the ID of the hearing aid you would like to return.");
                     newID = input.nextInt();
 
                     listOfHearingAids.returnHearingAid(newID); 
