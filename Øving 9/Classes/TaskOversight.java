@@ -1,43 +1,73 @@
 package Classes;
+
+/**
+ * Class to initialize a TaskOversight with relevant methods. 
+ */
+
 public class TaskOversight {
 
     private Student[] students;
     private int numberOfStudents = 0;
     
-    public TaskOversight() { //Constructor
+    /**
+     * Simple constructor to initialize TaskOversight.
+     */
+    public TaskOversight() { 
         this.students = new Student[0];
     }
 
-    public int getNumberOfStudents() { //Number of students registered
+    /**
+     * Get-method for the number of students.
+     * @return the number of students.
+     */
+    public int getNumberOfStudents() { 
         return this.numberOfStudents;
     }
 
-    public Student getStudent(int studentNumber){ //Check a specific student
+    /**
+     * Get-method to find a specific student by their student number.
+     * @param studentNumber the student's student number.
+     * @return the Student object that the student number belongs to.
+     */
+    public Student getStudent(int studentNumber){ 
         return this.students[studentNumber];
     }
 
-    public void addNewStudent(Student newStudent) { //Register a new student
-        Student[] newStudentList = new Student[this.numberOfStudents + 1]; //Making a new array
-        for(int i = 0; i < this.numberOfStudents; i++) { //Adding the old values to the new array
+    /**
+     * Method to add a new student to the TaskOversight.
+     * @param newStudent the student that will be added.
+     */
+    public void addNewStudent(Student newStudent) {
+        Student[] newStudentList = new Student[this.numberOfStudents + 1]; 
+        
+        for (int i = 0; i < this.numberOfStudents; i++) { 
             newStudentList[i] = this.students[i];
         }
-        newStudentList[newStudentList.length - 1] = newStudent; //Adding the new student to new array
+
+        newStudentList[newStudentList.length - 1] = newStudent; 
         this.students = newStudentList;
-        this.numberOfStudents = newStudentList.length; //Saving the new array and its length
+        this.numberOfStudents = newStudentList.length; 
     }
 
-    public void addNumberOfTasksForStudent(int studentNumber) { //Approve a task for a student
+    /**
+     * Method to approve a new task for a student.
+     * @param studentNumber the number of the student that will get a task approved.
+     */
+    public void addNumberOfTasksForStudent(int studentNumber) { 
         this.students[studentNumber].addNumberOfTasks();
     }
 
+    /**
+     * ToString method for the TaskOversight.
+     */
     public String toString() { 
         String callMethods2 = "";
         callMethods2 = callMethods2.concat("Number of registered students: " + getNumberOfStudents() + "\n\n");
-        for(int i = 0; i < this.numberOfStudents; i++) {
+        
+        for (int i = 0; i < this.numberOfStudents; i++) {
             callMethods2 = callMethods2.concat(i + ". " + this.students[i].getName() + "\n\n");
         }
 
         return callMethods2;
     }
-
 }

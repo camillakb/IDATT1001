@@ -2,21 +2,27 @@ import Classes.Student;
 import Classes.TaskOversight;
 import java.util.Scanner;
 
-public class studenttaskclient {
+/**
+ * Client for the TaskOversight class.
+ */
+
+public class StudentTaskClient {
     public static void main(String[] args) {
 
-        TaskOversight tasksForStudents = new TaskOversight(); //Create object, adding students
-        tasksForStudents.addNewStudent(new Student("Kari Nordmann", 4));
-        tasksForStudents.addNewStudent(new Student("Ola Pettersen", 6));
-        tasksForStudents.addNewStudent(new Student("Camilla Birkelund", 8));
-        tasksForStudents.addNewStudent(new Student("Donald Duck", 2));
+        //Creating a TaskOversight object and adding students
+        TaskOversight tasksForStudents = new TaskOversight(); 
+        tasksForStudents.addNewStudent(new Student("Student One", 4));
+        tasksForStudents.addNewStudent(new Student("Student Two", 6));
+        tasksForStudents.addNewStudent(new Student("Student Three", 8));
+        tasksForStudents.addNewStudent(new Student("Student Four", 2));
 
         String newStudentName;
-        int newStudentTasks;
         Scanner input = new Scanner(System.in);
         int userInputNumber;
         int chooseStudent;
+        int newStudentTasks;
 
+        //Do-while loop to allow the user to make multiple choices when running the client.
         do {
             System.out.println("What would you like to do?");
             System.out.println("1. Show list of students. \n2. Register a new student.");

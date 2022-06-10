@@ -1,26 +1,50 @@
 package Classes;
+
+/**
+ * Class to initialize a Student object with related methods.
+ */
+
 public class Student {
 
     private String name;
     private int numberOfTasks;
 
-    public Student(String name, int numberOfTasks) { //Constructor
+    /**
+     * Simple constructor to initialize a Student object.
+     * @param name the name of the student.
+     * @param numberOfTasks the number of tasks a student has completed.
+     */
+    public Student(String name, int numberOfTasks) { 
         this.name = name;
         this.numberOfTasks = numberOfTasks;
     }
 
+    /**
+     * Get-method for the student's name.
+     * @return the student's name.
+     */
     public String getName() {
         return this.name;
     } 
 
+    /**
+     * Get-method for the number of completed tasks for a student.
+     * @return the number of completed tasks for a student.
+     */
     public int getNumberOfTasks() {
         return this.numberOfTasks;
     }
 
+    /**
+     * Method to add a new completed task for a student.
+     */
     public void addNumberOfTasks() {
         this.numberOfTasks++;
     }
 
+    /**
+     * ToString method for the Student object.
+     */
     public String toString() {
         String callMethods = "";
         callMethods = callMethods.concat("Student name: " + this.getName());
@@ -30,9 +54,9 @@ public class Student {
     
     }
 
-    //Test program
+    //Testing the methods.
     public static void main(String[] args) { 
-        Student thisStudent = new Student("Camilla Birkelund", 8);
+        Student thisStudent = new Student("Test Student", 8);
 
         System.out.println(thisStudent.getName());
         System.out.println(thisStudent.getNumberOfTasks());
@@ -41,5 +65,4 @@ public class Student {
         thisStudent.addNumberOfTasks();
         System.out.println(thisStudent);
     }
-
 }
