@@ -1,11 +1,16 @@
-import Classes.Dish;
-import Classes.Menu;
-import Classes.Menuregister;
+import MenuRegisters.Dish;
+import MenuRegisters.Menu;
+import MenuRegisters.Menuregister;
 
-public class restaurantclient {
+/**
+ * Client for the MenuRegister class.
+ */
+
+public class RestaurantClient {
     
     public static void main (String[] args) {
 
+        //Initializing a menu register and adding dishes and menus.
         Menuregister register = new Menuregister();
 
         register.addDish(new Dish("Italian appetizer", "Italian", 150));
@@ -18,7 +23,7 @@ public class restaurantclient {
         register.addMenu(new Menu("Italian", register.getDishesOfType("Italian")));
         register.addMenu(new Menu("Vegetarian", register.getDishesOfType("Vegetarian")));
 
-
+        //Testing some of the methods.
         System.out.println(register.getDishByName("Italian dinner"));
         System.out.println();
         System.out.println(register.getMenuesBetweenPrices(500, 600));

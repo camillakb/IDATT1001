@@ -1,15 +1,20 @@
+import EventRegisters.Event;
+import EventRegisters.EventRegister;
+
 import java.util.Scanner;
 
-import Classes.Event;
-import Classes.EventRegister;
+/**
+ * Client for the EventRegister class.
+ */
 
-public class eventklient {
+public class EventClient {
     public static void main(String[] args) {
 
-        EventRegister listOfEvents = new EventRegister(); //Registering some events.
-        listOfEvents.addEvent(new Event(1, "Taconight", "Taqueros", "Kari Nordmann", "Dinner", 202112101800L));
+        //Registering some example events.
+        EventRegister listOfEvents = new EventRegister(); 
+        listOfEvents.addEvent(new Event(1, "Taconight", "Restaurant", "FirstName LastName", "Dinner", 202112101800L));
         listOfEvents.addEvent(new Event(2, "Christmas concert", "School", "Choir", "Concert", 202112201600L));
-        listOfEvents.addEvent(new Event(3, "Karaoke", "Night club owner", "Night club", "Party", 202111302000L));
+        listOfEvents.addEvent(new Event(3, "Karaoke", "Night club", "Night club owner", "Party", 202111302000L));
         listOfEvents.addEvent(new Event(4, "Bowling", "Bowling 1", "Class coordinator", "Sport", 202111251700L));
 
         int newEventNumber, userInputNumber;
@@ -17,6 +22,7 @@ public class eventklient {
         long newStartDate , newLastDate, newEventTime;
         Scanner input = new Scanner(System.in);
 
+        //Do-while loop to allow the user to make multiple choices when running the client.
         do {
             System.out.println("What would you like to do?");
             System.out.println("1. Show all events. \n2. Register a new event. \n3. Find all events at a specific location.");
@@ -29,25 +35,31 @@ public class eventklient {
 
             switch(userInputNumber) {
 
-                case 1: //Shows all events.
+                case 1: //Prints all events.
                     System.out.println(listOfEvents);
                     break;
 
-                case 2: //Registers new event.
+                case 2: //Registers new event. The instances of 'input.nextLine()' is to  consume the \n character.
                     System.out.println("What eventnumber is this?"); 
                     input.nextLine();
                     newEventNumber = input.nextInt();
+
                     System.out.println("What is the name of the event?");
                     input.nextLine();
                     newEventName = input.nextLine();
+
                     System.out.println("What is the location of the event?");
                     newEventLocation = input.nextLine();
+
                     System.out.println("Who will be organizing the event?");
                     newEventOrganizer = input.nextLine();
+
                     System.out.println("What type of event is this?");
                     newEventType = input.nextLine();
+
                     System.out.println("At what time will the event take place? Please answer with year, month, date and time like this: 202001011800");
                     newEventTime = input.nextLong();
+
                     listOfEvents.addEvent(new Event(newEventNumber, newEventName, newEventLocation, newEventOrganizer, newEventType, newEventTime));
                     break;
 
@@ -59,7 +71,7 @@ public class eventklient {
                     break;
 
                 case 4: //Shows all events for a specific date.
-                    System.out.println("What date would you like to see events for?"); 
+                    System.out.println("What date would you like to see events for? Please use the format year,month,date like this: 20210101"); 
                     newEventTime = input.nextLong();
                     System.out.println(listOfEvents.getEventsAtDate(newEventTime));
                     break;
@@ -89,8 +101,8 @@ public class eventklient {
                         System.out.println(event);
                     }
                     break;
-
             }
+
         } while (userInputNumber != 9);
         input.close();
     }
