@@ -1,16 +1,23 @@
+package OccurencesOfANumber;
 import java.util.Random; 
 
-public class oppg1 {
+/**
+ * Client to check the number of occurences of an integer between 0-9 in a given interval.
+ */
+
+public class NumberOfOccurences {
     public static void main(String [] args) {
         Random random = new Random();
         int[] randomList = new int[10];
+        int amountOfNumbers = 1000;
 
-        for(int i = 0; i < 1000; i++) {
+        //Generating a list of the given amount of numbers in the interval 0-9.
+        for (int i = 0; i < amountOfNumbers; i++) {
             randomList[random.nextInt(10)] +=1;
         }
 
-        System.out.println("Random distribution of numbers in the interval (0, 9):\n"
-        + "0: " + randomList[0] + " occurrences.\n"
+        System.out.printf("Random distribution of %d numbers in the interval (0, 9):\n", amountOfNumbers);
+        System.out.println("0: " + randomList[0] + " occurrences.\n"
         + "1: " + randomList[1] + " occurrences.\n"
         + "2: " + randomList[2] + " occurrences.\n"
         + "3: " + randomList[3] + " occurrences.\n"
@@ -21,4 +28,4 @@ public class oppg1 {
         + "8: " + randomList[8] + " occurrences.\n"
         + "9: " + randomList[9] + " occurrences.\n");
     }
-} //Fiks utskrift med stjerner
+} 
