@@ -2,6 +2,10 @@ package Classes;
 
 import java.util.ArrayList;
 
+/**
+ * Class to initialize a PropertyRegister with relevant methods.
+ */
+
 public class PropertyRegister {
 
     private ArrayList<Property> properties;
@@ -16,7 +20,7 @@ public class PropertyRegister {
 
     /**
      * Method to add a new property that checks if the property ID already exists before adding it.
-     * @param newProperty - new property that is added to the property register.
+     * @param newProperty new property that is added to the property register.
      */
     public void addProperty(Property newProperty) {
         if (findProperty(newProperty.getMunicipalitynr(), newProperty.getLotNumber(), newProperty.getSectionNumber()) != null) {
@@ -27,7 +31,7 @@ public class PropertyRegister {
 
     /**
      * Method to remove property.
-     * @param property - property that is being removed.
+     * @param property property that is being removed.
      */
     public void removeProperty(Property property) {
         properties.remove(property);
@@ -35,7 +39,7 @@ public class PropertyRegister {
 
     /**
      * Method to check the number of properties in the register. 
-     * @return returns an integer that is the amount of properties in the register.
+     * @return an integer that is the amount of properties in the register.
      */
     public int numberOfProperties() {
         return properties.size();
@@ -43,13 +47,14 @@ public class PropertyRegister {
 
     /**
      * Method to find property by property ID number.
-     * @param municipalityNumber - the municipality number of the property.
-     * @param lotNumber - the lot number of the property.
-     * @param sectionNumber - the section number of the property.
-     * @return returns the property that matches the ID number.
+     * @param municipalityNumber the municipality number of the property.
+     * @param lotNumber the lot number of the property.
+     * @param sectionNumber the section number of the property.
+     * @return the property that matches the ID number.
      */
     public Property findProperty(int municipalityNumber, int lotNumber, int sectionNumber) {
         String searchProperty = String.format("%d-%d/%d", municipalityNumber, lotNumber, sectionNumber);
+        
         for (Property property : this.properties) {
             if (searchProperty.equals(property.getID())) {
                 return property;
@@ -60,8 +65,8 @@ public class PropertyRegister {
     }
 
     /**
-     * Task 3b). Method to get average area for all properties in the register.
-     * @return returns a double that is the average area of all the properties in the register in square metres.
+     * Method to get average area for all properties in the register.
+     * @return a double that is the average area of all the properties in the register in square metres.
      */
     public double getAverageArea() {
         double sum = 0;
@@ -74,9 +79,9 @@ public class PropertyRegister {
     }
 
     /**
-     * Task 3c). Method to find property by lot number.
-     * @param lotNr - lot number of the property.
-     * @return returns a list of properties that has a certain lot number.
+     * Method to find property by lot number.
+     * @param lotNr lot number of the property.
+     * @return a list of properties that has a certain lot number.
      */
     public ArrayList<Property> getPropertiesWithLotNr(int lotNr) {
         ArrayList<Property> listOfProperties = new ArrayList<Property>();
@@ -90,6 +95,9 @@ public class PropertyRegister {
         return listOfProperties;
     }
 
+    /**
+     * ToString method for the PropertyRegister object.
+     */
     public String toString() {
         String propertylist = "";
         for (Property property : this.properties) {
@@ -99,7 +107,4 @@ public class PropertyRegister {
 
         return propertylist;
     }
-
-
-    
 }

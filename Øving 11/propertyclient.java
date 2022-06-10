@@ -3,13 +3,15 @@ import java.util.Scanner;
 import Classes.Property;
 import Classes.PropertyRegister;
 
-public class propertyclient {
+/**
+ * Client for the PropertyRegister class.
+ */
+
+public class PropertyClient {
     
     public static void main(String[] args) {
 
-        /**
-         * Making an empty PropertyRegister list and adding examples given in the task.
-         */
+        //Making an empty PropertyRegister list and adding examples.
         PropertyRegister propertyList = new PropertyRegister();
         propertyList.addProperty(new Property(1445, "Gloppen", 77, 631, "", 1071.6, "Jens Olsen"));
         propertyList.addProperty(new Property(1445, "Gloppen", 77, 131, "Syningom", 661.3, "Nicolay Madsen"));
@@ -17,22 +19,15 @@ public class propertyclient {
         propertyList.addProperty(new Property(1445, "Gloppen", 74, 188, "", 1457.2, "Karl Ove Bråten"));
         propertyList.addProperty(new Property(1445, "Gloppen", 69, 47, "Høiberg", 1339.4, "Elsa Indregård"));
 
-        /**
-         * Attributes used in the client program.
-         */
+        //Attributes used in the client program.
         Scanner input = new Scanner(System.in); 
         int userInputNumber, newMunicipalityNumber, newLotNumber, newSectionNumber;
         String newMunicipalityName, newName, newNameOfOwner;
         double newArea;
 
 
-        /**
-         * Do-while loop for the applications so it is possible to choose multiple actions or choose to quit.
-         */
+        //Do-while loop to allow the user to choose multiple actions when running the client.
         do {
-            /**
-             * Menu for the application.
-             */
             System.out.println("What would you like to do?");
             System.out.println("1. Add a new property to the property register.");
             System.out.println("2. See all properties in the property register.");
@@ -45,11 +40,7 @@ public class propertyclient {
 
             switch(userInputNumber) {
 
-                /**
-                 * Case 1 let's the user register a new property. The input.nextLine() methods are used to consume the extra \n
-                 * characters that appear before registering the next String input.
-                 */
-                case 1:
+                case 1: //Register a new property. The instances of 'input.nextLine()' consumes the extra \n character.
                     System.out.println("What is the municipality number where the property is located?");
                     newMunicipalityNumber = input.nextInt();
 
@@ -78,17 +69,11 @@ public class propertyclient {
                     System.out.println("Property is added to the register.");
                     break;
 
-                /**
-                 * Case 2 prints all the properties in the register.
-                 */
-                case 2:
+                case 2: //Prints all properties in the register.
                     System.out.println(propertyList); 
                     break;
 
-                /**
-                 * Case 3 searches for properties by municipality number, lot number and section number.
-                 */
-                case 3:
+                case 3: //Searches for properties by municipality number, lot number and section number.
                     System.out.println("Please enter the municipality number of the property.");
                     newMunicipalityNumber = input.nextInt();
                     System.out.println("Please enter the lot number of the property.");
@@ -98,20 +83,15 @@ public class propertyclient {
                     System.out.println(propertyList.findProperty(newMunicipalityNumber, newLotNumber, newSectionNumber)); 
                     break;
 
-                /**
-                 * Case 4 calculates and prints the average area for the properties in the register.
-                 */
-                case 4:
+                case 4: //Calculates and prints the average area for the properties in the register.
                     System.out.println(propertyList.getAverageArea());
                     break;
 
                 default:
                     break;
-
             }
 
         } while (userInputNumber != 5);
-
         input.close();
     }
 }

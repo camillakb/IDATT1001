@@ -1,25 +1,29 @@
 package Classes;
 
+/**
+ * Class to initialize a Property object with relevant methods.
+ */
+
 public class Property {
-    int municipalitynr;
+    
     String municipalityName;
+    String name;
+    String nameOfOwner;
+    int municipalitynr;
     int lotNumber;
     int sectionNumber;
-    String name;
     double area;
-    String nameOfOwner;
-
+   
     /**
      * Simple constructor that checks if the municipality number, lot number and section number is valid.
-     * @param municipalitynr - municipality number for the municipality the property is in.
-     * @param municipalityName - name of the municipality that the property is in.
-     * @param lotNumber - the property's lot number.
-     * @param sectionNumber - the property's section number.
-     * @param name - name of the property (the property doesn't always have a name).
-     * @param area - area of the property.
-     * @param nameOfOwner - name of the property's owner.
+     * @param municipalitynr municipality number for the municipality the property is in.
+     * @param municipalityName name of the municipality that the property is in.
+     * @param lotNumber the property's lot number.
+     * @param sectionNumber the property's section number.
+     * @param name name of the property (the property doesn't always have a name).
+     * @param area area of the property.
+     * @param nameOfOwner name of the property's owner.
      */
-
     public Property(int municipalitynr, String municipalityName, int lotNumber, int sectionNumber, String name, double area, String nameOfOwner) {
         if (municipalitynr < 101 || municipalitynr > 5054) {
             throw new IllegalArgumentException("Municipality number must be between 101 and 5054.");
@@ -43,56 +47,56 @@ public class Property {
     }
 
     /**
-     * 
-     * @return returns an integer that is the municipality number.
+     * Get-method for the property's municipality number.
+     * @return an integer that is the municipality number.
      */
     public int getMunicipalitynr() {
         return municipalitynr;
     }
 
     /**
-     * 
-     * @return returns a String that is the name of the municipality that the property is in.
+     * Get-method for the municipality name the property is in.
+     * @return a String that is the name of the municipality that the property is in.
      */
     public String getMunicipalityName() {
         return municipalityName;
     }
 
     /**
-     * 
-     * @return returns an integer that is the lot number of the property.
+     * Get-method for the property's lot number.
+     * @return an integer that is the lot number of the property.
      */
     public int getLotNumber() {
         return lotNumber;
     }
 
     /**
-     * 
-     * @return returns an integer that is the section number of the property.
+     * Get-method for the property's section number.
+     * @return an integer that is the section number of the property.
      */
     public int getSectionNumber() {
         return sectionNumber;
     }
 
     /**
-     * 
-     * @return returns a String that is the name of the property.
+     * Get-method for the property's name.
+     * @return a String that is the name of the property.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 
-     * @return returns a double that is the area of the property.
+     * Get-method for the property's area.
+     * @return a double that is the area of the property.
      */
     public double getArea() {
         return area;
     }
 
     /**
-     * 
-     * @return returns a String that is the name of the property's owner.
+     * Get-method for the name of the property's owner.
+     * @return a String that is the name of the property's owner.
      */
     public String getNameOfOwner() {
         return nameOfOwner;
@@ -100,28 +104,29 @@ public class Property {
 
 
     /**
-     * Set-methods for property name and name of the property's owner.
+     * Set-methods for only the property name and name of the property's owner.
      * Chosen because these are the most likely to be changed.
      */
 
     /**
-     * set-method that changes the name of the property.
-     * @param name - name of the property.
+     * Set-method that changes the name of the property.
+     * @param name name of the property.
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * set-method that changes the name of the property's owner.
-     * @param nameOfOwner - name of the property's owner.
+     * Set-method that changes the name of the property's owner.
+     * @param nameOfOwner name of the property's owner.
      */
     public void setNameOfOwner(String nameOfOwner) {
         this.nameOfOwner = nameOfOwner;
     }
 
     /**
-     * Task 2b). Method to return property ID in the format: muncipalitynr-lotNumber/sectionNumber.
+     * Method to return property ID in the format: muncipalitynr-lotNumber/sectionNumber.
+     * @return the property's ID.
      */
     public String getID() {
         String propertyID = "";
@@ -130,6 +135,9 @@ public class Property {
         return propertyID;
     }
 
+    /**
+     * ToString method for the property object.
+     */
     public String toString() {
         String propertyToString = "";
         propertyToString = propertyToString.concat("Municipality number and name: " + getMunicipalitynr() + " " + getMunicipalityName());
