@@ -1,24 +1,29 @@
-import Klasser.ArbTaker;
-import Klasser.Person;
 import java.util.Scanner;
 
+import Classes.Employee;
+import Classes.Person;
 
-public class ArbTakerKlient {
+/**
+ * Client for the Employee class.
+ */
+
+public class EmployeeClient {
     public static void main(String[] args) {
-        Person imThePerson = new Person("Camilla", "Birkelund", 1995); 
-        ArbTaker imAtWork = new ArbTaker(imThePerson, 48, 2018, 30000, 35);
+        //Initializing an example of a person and employee.
+        Person examplePerson = new Person("FirstName", "LastName", 1980); 
+        Employee exampleEmployee = new Employee(examplePerson, 48, 2018, 30000, 35);
         Person currentPerson, newPerson;
         int number;
-        Scanner input = new Scanner(System.in); //Scanner object
+        Scanner input = new Scanner(System.in); 
 
         do {
-            System.out.println(imAtWork);
+            System.out.println(exampleEmployee);
             System.out.println("Which field would you like to edit?");
             System.out.println("1. First name \n2. Last name \n3. Monthly salary \n4. Tax percentage"); 
             System.out.println("5. Figure out if employee has been hired for longer than a certain amount of years \n6. Quit");
             
             System.out.println("Enter your choice: ");
-            int userChoice = Integer.parseInt(input.nextLine()); //Read user input
+            int userChoice = Integer.parseInt(input.nextLine()); 
             System.out.println();
 
             
@@ -27,43 +32,42 @@ public class ArbTakerKlient {
                 case 1:
                     System.out.println("Enter new first name: ");
                     String changeFN = input.nextLine();
-                    currentPerson = imAtWork.getPersonalia();
+                    currentPerson = exampleEmployee.getPersonalia();
                     newPerson = new Person(changeFN, currentPerson.getLastName(), currentPerson.getBirthYear());
-                    imAtWork.setPersonalia(newPerson);
+                    exampleEmployee.setPersonalia(newPerson);
                     break; 
 
                 case 2:
                     System.out.println("Enter new last name: ");
                     String changeLN = input.nextLine();
-                    currentPerson = imAtWork.getPersonalia();
+                    currentPerson = exampleEmployee.getPersonalia();
                     newPerson = new Person(currentPerson.getFirstName(), changeLN, currentPerson.getBirthYear());
-                    imAtWork.setPersonalia(newPerson);
+                    exampleEmployee.setPersonalia(newPerson);
                     break; 
 
                 case 3:
                     System.out.println("Enter new monthly salary: ");
                     double changeSalary = Double.parseDouble(input.nextLine());
-                    imAtWork.setMonthlyPay(changeSalary);
+                    exampleEmployee.setMonthlyPay(changeSalary);
                     break;
 
                 case 4: 
                     System.out.println("Enter new tax percentage: ");
                     double changeTaxPercentage = Double.parseDouble(input.nextLine());
-                    imAtWork.setTaxPercentage(changeTaxPercentage);
+                    exampleEmployee.setTaxPercentage(changeTaxPercentage);
                     break;
 
                 case 5:
                     System.out.println("Enter any amount of years: ");
                     int yearsAmount = Integer.parseInt(input.nextLine());
                     
-                    if(imAtWork.hiredLongerThan(yearsAmount)) {
-                        System.out.println("Yes, " + imAtWork.getNames() + " has been employed for longer than " + yearsAmount + " years.");
+                    if(exampleEmployee.hiredLongerThan(yearsAmount)) {
+                        System.out.println("Yes, " + exampleEmployee.getNames() + " has been employed for longer than " + yearsAmount + " years.");
 
                     } else {
-                        System.out.println("No, " + imAtWork.getNames() + " has not been hired for longer than " + yearsAmount + " years.");
+                        System.out.println("No, " + exampleEmployee.getNames() + " has not been hired for longer than " + yearsAmount + " years.");
                     }
                     break;
-
             } 
 
         } while(number != 6);
